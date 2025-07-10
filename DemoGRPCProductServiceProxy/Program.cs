@@ -4,12 +4,12 @@ using DemoGRPCProductServiceProxy.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // gRPC Client to talk to CoreGrpc
-/*
-builder.Services.AddGrpcClient<ProductGrpc.ProductGrpcClient>(o =>
+
+builder.Services.AddGrpcClient<ProductProtoService.ProductProtoServiceClient>(o =>
 {
-    o.Address = new Uri("http://localhost:6001"); // <-- CoreGrpc server address
+    o.Address = new Uri("http://localhost:6001");
 });
-*/
+
 
 builder.Services.AddGrpc();
 builder.Services.AddScoped<ProductGrpcProxy>();
