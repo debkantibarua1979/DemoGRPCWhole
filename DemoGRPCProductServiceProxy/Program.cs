@@ -1,4 +1,4 @@
-using DemoGRPCPro
+using DemoGRPCContracts.Protos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,11 +12,11 @@ builder.Services.AddGrpcClient<ProductGrpc.ProductGrpcClient>(o =>
 builder.Services.AddGrpc();
 
 // Register proxy service
-builder.Services.AddScoped<ProductGrpcProxyService>();
+//builder.Services.AddScoped<ProductGrpcProxyService>();
 
 var app = builder.Build();
 
-app.MapGrpcService<ProductGrpcProxyService>();
+//app.MapGrpcService<ProductGrpcProxyService>();
 
 app.MapGet("/", () => "This is the ProductService gRPC Gateway");
 
